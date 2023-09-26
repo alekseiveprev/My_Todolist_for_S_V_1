@@ -1,6 +1,7 @@
-type TodolostPropsType = {
+export type TodolostPropsType = {
   title: string;
   tasks: Array<TaskPropsType>;
+  removeTask: (taskId: number) => void;
 };
 
 type TaskPropsType = {
@@ -17,18 +18,21 @@ export function Todolost(props: TodolostPropsType) {
         <button>+</button>
       </div>
       <ul>
-        <li key={props.tasks[0].id}>
-          <input type="checkbox" checked={props.tasks[0].isDone} />
-          <span>{props.tasks[0].title}</span>
-        </li>
-        <li key={props.tasks[1].id}>
-          <input type="checkbox" checked={props.tasks[1].isDone} />
-          <span>{props.tasks[1].title}</span>
-        </li>
-        <li key={props.tasks[2].id}>
-          <input type="checkbox" checked={props.tasks[2].isDone} />{' '}
-          <span>{props.tasks[2].title}</span>
-        </li>
+        {props.tasks.map((t) => {
+          return (
+            <li key={t.id}>
+              <input type="checkbox" checked={t.isDone} />
+              <span>{t.title}</span>{' '}
+              <button
+                onClick={() => {
+                  alert(t.id);
+                }}
+              >
+                ✖️
+              </button>
+            </li>
+          );
+        })}
       </ul>
       <div>
         <button>All</button>
