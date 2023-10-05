@@ -16,10 +16,10 @@ export const App: FC<{ name: string }> = ({ name }) => {
   ]);
 
   const removeTask = (id: string) => {
-    const newTasks = tasks.filter((nt) => {
+    const newFilterTasks = tasks.filter((nt) => {
       return nt.id !== id;
     });
-    setTasks(newTasks);
+    setTasks(newFilterTasks);
   };
 
   const [filter, setFilter] = useState('All');
