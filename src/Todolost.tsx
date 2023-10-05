@@ -1,7 +1,10 @@
+import { ChangeTaskType } from './App';
+
 export type TodolostPropsType = {
   title: string;
   tasks: Array<TaskPropsType>;
   removeTask: (taskId: number) => void;
+  changeTask: (value: ChangeTaskType) => void;
 };
 
 type TaskPropsType = {
@@ -25,7 +28,7 @@ export function Todolost(props: TodolostPropsType) {
               <span>{t.title}</span>{' '}
               <button
                 onClick={() => {
-                  alert(t.id);
+                  props.removeTask(t.id);
                 }}
               >
                 ✖️
@@ -35,9 +38,9 @@ export function Todolost(props: TodolostPropsType) {
         })}
       </ul>
       <div>
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick={() => props.changeTask('All')}>All</button>
+        <button onClick={() => props.changeTask('Active')}>Active</button>
+        <button onClick={() => props.changeTask('Completed')}>Completed</button>
       </div>
     </div>
   );
