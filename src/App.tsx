@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { v1 } from 'uuid';
 import './style.css';
 import { Todolost } from './Todolost';
 
@@ -6,15 +7,15 @@ export type ChangeTaskType = 'All' | 'Active' | 'Completed';
 
 export const App: FC<{ name: string }> = ({ name }) => {
   const [tasks, setTasks] = useState([
-    { id: 1, title: 'HTML&CSS', isDone: true },
-    { id: 2, title: 'JS', isDone: true },
-    { id: 3, title: 'ReactJS', isDone: false },
-    { id: 4, title: 'Hello world', isDone: true },
-    { id: 5, title: 'I am Happy', isDone: false },
-    { id: 6, title: 'Yo', isDone: false },
+    { id: v1(), title: 'HTML&CSS', isDone: true },
+    { id: v1(), title: 'JS', isDone: true },
+    { id: v1(), title: 'ReactJS', isDone: false },
+    { id: v1(), title: 'Hello world', isDone: true },
+    { id: v1(), title: 'I am Happy', isDone: false },
+    { id: v1(), title: 'Yo', isDone: false },
   ]);
 
-  const removeTask = (id: number) => {
+  const removeTask = (id: string) => {
     const newTasks = tasks.filter((nt) => {
       return nt.id !== id;
     });

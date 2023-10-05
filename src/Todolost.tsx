@@ -3,12 +3,12 @@ import { ChangeTaskType } from './App';
 export type TodolostPropsType = {
   title: string;
   tasks: Array<TaskPropsType>;
-  removeTask: (taskId: number) => void;
+  removeTask: (taskId: string) => void;
   changeTask: (value: ChangeTaskType) => void;
 };
 
 type TaskPropsType = {
-  id: number;
+  id: string;
   title: string;
   isDone: boolean;
 };
