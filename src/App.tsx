@@ -5,7 +5,7 @@ import { Todolost } from './Todolost';
 
 export type ChangeTaskType = 'All' | 'Active' | 'Completed';
 
-export const App: FC<{ name: string }> = ({ name }) => {
+export const App: FC<{ }> = ({ }) => {
   const [tasks, setTasks] = useState([
     { id: v1(), title: 'HTML&CSS', isDone: true },
     { id: v1(), title: 'JS', isDone: true },
